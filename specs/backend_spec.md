@@ -65,7 +65,11 @@ O sistema consiste em uma API RESTful para gerenciar uma lista de tarefas, permi
 ## 4. Requisitos Não Funcionais (Sugestões)
 - **Persistência:** Banco de dados relacional (SQLite para desenvolvimento, PostgreSQL para produção).
 - **Validação:** 
-  - Garantir que o título não seja vazio.
-  - E tenha pelo menos três caracteres.
+  - Garantir que o título:
+    - não seja vazio.
+    - E tenha pelo menos três caracteres.
+    - O tamanho máximo do título de 200 caracteres
+  - Garantir que a descrição 
+    - Quando preenchida tenha mais de 5 caracteres e menos de 500
 - **Logs:** Registrar operações de escrita (CUD).
 - **CORS:** Habilitar para permitir acesso do frontend.
