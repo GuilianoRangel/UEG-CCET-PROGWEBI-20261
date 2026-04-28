@@ -25,6 +25,13 @@ export class TasksController {
     return this.tasksService.findAllCompleted();
   }
 
+  @Get('incomplete')
+  @ApiOperation({ summary: 'Listar todas as tarefas incompletas' })
+  @ApiResponse({ status: 200, description: 'Lista de tarefas incompletas retornada com sucesso.', type: [Task] })
+  findAllIncomplete() {
+    return this.tasksService.findAllIncomplete();
+  }
+
   @Get(':id')
   @ApiOperation({ summary: 'Buscar uma tarefa por ID' })
   @ApiResponse({ status: 200, description: 'Tarefa encontrada.', type: Task })
