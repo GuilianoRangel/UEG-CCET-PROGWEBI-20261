@@ -20,6 +20,10 @@ export class TasksService {
     return this.taskRepository.find({ where: { completed: true } });
   }
 
+  async findAllIncomplete(): Promise<Task[]> {
+    return this.taskRepository.find({ where: { completed: false } });
+  }
+
   async findOne(id: string): Promise<Task> {
     const task = await this.taskRepository.findOne({ where: { id } });
     if (!task) {
