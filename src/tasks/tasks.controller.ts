@@ -61,11 +61,19 @@ export class TasksController {
     return this.tasksService.remove(id);
   }
 
-  @Patch(':id/status')
+  @Patch(':id/inactive')
   @ApiOperation({ summary: 'Desfaz a task' })
   @ApiResponse({ status: 200, description: 'Status atualizado com sucesso.', type: Task })
   @ApiResponse({ status: 404, description: 'Tarefa não encontrada.' })
   inactiveTask(@Param('id') id: string) {
     return this.tasksService.updateStatus(id, false);
+  }
+
+  @Patch(':id/activate')
+  @ApiOperation({ summary: 'Atualizar apenas o status de conclusão' })
+  @ApiResponse({ status: 200, description: 'Status atualizado com sucesso.', type: Task })
+  @ApiResponse({ status: 404, description: 'Tarefa não encontrada.' })
+  activateTask(@Param('id') id: string) {
+    return this.tasksService.updateStatus(id, true);
   }
 }
